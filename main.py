@@ -14,7 +14,7 @@ def app_get_coords():
 
         settings = get_settings_from_sql()  # получаем последние настройки из БД
         sd = get_sample_data(resp, settings)  # получаем данные с сервера
-        if not sd: continue  # если есть ошибка то выходим в меню
+        if not sd or len(sd["suggestions"]) == 0: continue  # если есть ошибка то выходим в меню
 
         # выводим полученные данные
         print("Найденные варианты:")
